@@ -6,6 +6,7 @@ html {
 
 .body {
     width: 90%;
+    min-width: 750px;
     max-width: 1000px;
     margin: 10px auto;
     background-color: #FFFFFF;
@@ -43,7 +44,7 @@ a {
     margin-left: 3%;
 }
 
-.fa {
+.fa-angle-double-right {
     padding-left: 5px;
 }
 
@@ -67,7 +68,7 @@ a {
     text-align: center;
     border-radius: 5px;
     overflow: hidden;
-    background: url('imgs/wood-bkgrd.png') no-repeat;
+    background: url('../imgs/wood-bkgrd.png') no-repeat;
     background-size: cover;
 }
 
@@ -129,7 +130,6 @@ a {
     display: flex;
     padding: 10px 5px;
     max-height: 160px;
-    overflow: scroll;
 }
 
 .product-img {
@@ -142,11 +142,26 @@ a {
     line-height: 1.4em;
     flex: 1;
     padding: 5px 0 0 5px;
+    max-height: 160px;
+    overflow: hidden;
 }
 
 .price-qty {
     text-align: center;
-    margin: 10px;
+    margin: 15px;
+}
+
+.more-info {
+    display: block;
+    color: blue;
+    float: right;
+    margin: -5px 10px 0 0;
+    font-size: 0.8em;
+    padding: 0
+}
+
+.more-info:hover {
+    cursor: context-menu;
 }
 
 /****************************************/

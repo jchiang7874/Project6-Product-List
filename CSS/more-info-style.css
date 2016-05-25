@@ -1,0 +1,19 @@
+
+.product-detail {
+    display: block;
+    width: 360px;
+    height: 350px;
+    margin: 30px auto;
+}
+
+.fa-angle-double-left {
+    padding: 5px;
+}
+
+.img-desc {
+    padding: 10px;
+}
+
+.back {
+    margin: 60px 20px;
+}
