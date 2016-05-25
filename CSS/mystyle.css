@@ -152,16 +152,7 @@ a {
 }
 
 .more-info {
-    display: block;
-    color: blue;
-    float: right;
-    margin: -5px 10px 0 0;
-    font-size: 0.8em;
-    padding: 0
-}
-
-.more-info:hover {
-    cursor: context-menu;
+    display: none;
 }
 
 /****************************************/
@@ -447,5 +438,20 @@ label {
 
     .cart.product-name {
         font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .more-info {
+        display: block;
+        color: blue;
+        float: right;
+        margin: -5px 10px 0 0;
+        font-size: 0.8em;
+        padding: 0
+    }
+
+    .more-info:hover {
+        cursor: context-menu;
     }
 }
