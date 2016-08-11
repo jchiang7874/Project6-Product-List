@@ -9,6 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <script src="jquery-3.1.0.js"></script>
     <title>Product Listing Page</title>
 </head>
 <body class="body">
@@ -22,7 +23,7 @@
 
         <section class="product-content">
             <header class="content-title-bar">
-                <ul class="show-num-list">Show
+                <ul class="show-num-list">Show:
                     <li><a href="#" class="num-list selected">All</a></li>
                     <li><a href="#" class="num-list">10</a></li>
                     <li><a href="#" class="num-list">20</a></li>
@@ -51,7 +52,7 @@
                     <div class="img-desc">
                         <img src="imgs/hanger.png" alt="hanger" class="product-img">
                         <p class="product-desc">Pronounced notes of citrus zest-lemon, orange and grapefruit, as well
-                        as accents of pine and hemp oil; balanced.</p>
+                        as accents of pine and hemp oil.</p>
                     </div>
                     <div class="price-qty">
                         <span class="price">$9.49</span>
@@ -65,8 +66,9 @@
                     <h3 class="product-name" id="port-brew">PORT BREWING OLD VISCOSITY</h3>
                     <div class="img-desc">
                         <img src="imgs/port.png" alt="port" class="product-img">
-                        <p class="product-desc">Aromas of sweet malt, caramel, toffee, nuts, hints of cocca, and piney hops.
-                        Well-balanced alcohol with a flavor of roasted, burnt chocolate maltiness.</p>
+                        <p class="product-desc">Nearly black in color with a creamy head; aromas of sweet malt,
+                            caramel, toffee, nuts, hints of cocca, and piney hops. Well-balanced alcohol with a flavor
+                            of roasted, burnt chocolate maltiness.</p>
                     </div>
 
                     <a href="HTML/port-brew.html" class="more-info">more<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
@@ -227,29 +229,61 @@
 
         <hr>
 
-        <section class="shopping-cart">
+        <section class="shopping-cart hide">
             <header class="content-title-bar checkout">
                 <h1>Checkout</h1>
+                <!--
+                <a href="#" class="hide-cart"><i class="fa fa-angle-double-left" aria-hidden="true"></i>Hide your cart</a>
+                -->
                 <h3 class="checkout-subtitle">Items in your cart</h3>
             </header>
 
-            <div class="cart-product-detail">
+            <div class="items">
+                <div class="cart-product-detail hide">
+                    <div class="cart-product-img col1">
+                        <h4 class="cart product-name"></h4>
+                        <img src="#" alt="" class="cart product-img">
+                    </div>
+                    <div class="info-box">
+                        <div class="cart-price col2">
+                            <div class="cart price-qty">
+                                <span class="price in-cart"></span>
+                                <label for="qty">Qty:</label>
+                                <input type="number" min="0" class="shop-cart qty" value="">
+                            </div>
+                        </div>
+
+                        <div class="item-subtotal col3">
+                            <label for="item-amt">Price $</label>
+                            <input type="number" value="" class="input-style dollar-amt" id="item-amt">
+                            <div class="cart-btns">
+                                <button class="btn remove">Remove</button>
+                                <button class="btn update">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+<!--
+
+            <div class="cart-product-detail hide">
                 <div class="cart-product-img col1">
-                    <h4 class="cart product-name">STONE RUINATION</h4>
-                    <img src="imgs/stone.png" alt="stone" class="cart product-img">
+                    <h4 class="cart product-name"></h4>
+                    <img src="#" alt="" class="cart product-img">
                 </div>
                 <div class="info-box">
                     <div class="cart-price col2">
                         <div class="cart price-qty">
-                            <span class="price">$6.99</span>
+                            <span class="price in-cart"></span>
                             <label for="qty">Qty:</label>
-                            <input type="number" min="0" class="shop-cart qty" value="3">
+                            <input type="number" min="0" class="shop-cart qty" value="">
                         </div>
                     </div>
 
                     <div class="item-subtotal col3">
                         <label for="item-amt">Price $</label>
-                        <input type="number" value="20.97" class="input-style dollar-amt" id="item-amt">
+                        <input type="number" value="" class="input-style dollar-amt" id="item-amt">
                         <div class="cart-btns">
                             <button class="btn remove">Remove</button>
                             <button class="btn update">Update</button>
@@ -307,7 +341,7 @@
                 </div>
             </div>
 
-
+-->
             <div class="cart-total">
                 <div class="promo">
                     <label for="promo-code">Promo Code</label>
@@ -316,7 +350,8 @@
 
                 <div class="cart-subtotal">
                     <label for="subtotal"><strong>Subtotal $</strong></label>
-                    <input type="number" value="45.04" class="input-style dollar-amt" id="subtotal">
+                    <input type="number" value="0" class="input-style dollar-amt" id="subtotal">
+                    <a href="#"><i class="fa fa-calculator fa-lg" aria-hidden="true"></i></a>
                 </div>
 
                 <div class="checkout-btns">
@@ -339,5 +374,8 @@
         </footer>
         -->
     </div>
+
+    <script src="shoppingCartScript.js"></script>
+
 </body>
 </html>

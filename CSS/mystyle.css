@@ -152,16 +152,7 @@ a {
 }
 
 .more-info {
-    display: block;
-    color: blue;
-    float: right;
-    margin: -5px 10px 0 0;
-    font-size: 0.8em;
-    padding: 0
-}
-
-.more-info:hover {
-    cursor: context-menu;
+    display: none;
 }
 
 /****************************************/
@@ -175,6 +166,27 @@ a {
     border-radius: 5px;
     overflow: hidden;
     border: 3px solid #3E261A;
+    visibility: visible;
+    position: relative;
+}
+
+.shopping-cart.hide {
+    visibility: hidden;
+}
+
+.cart-product-detail.hide {
+    display: none;
+}
+
+.fa-angle-double-left {
+    color: #FFFFFF;
+}
+
+.hide-cart {
+    color: #FFFFFF;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .cart-product-detail {
@@ -184,6 +196,7 @@ a {
     padding: 10px;
     display: flex;
     position: relative;
+    visibility: visible;
 }
 
 .cart-product-img.col1 {
@@ -224,6 +237,7 @@ a {
     margin: 10px auto;
 }
 
+
 /****************************************/
 /************** Subtotal ***************/
 /**************************************/
@@ -254,6 +268,10 @@ h1, h2, h3, h4 {
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+.fa-calculator {
+    margin-left: 20px;
 }
 
 .checkout h1 {
@@ -449,3 +467,20 @@ label {
         font-size: 0.8em;
     }
 }
+
+@media only screen and (max-width: 1020px) {
+    .more-info {
+        display: block;
+        color: blue;
+        float: right;
+        margin: -5px 10px 0 0;
+        font-size: 0.8em;
+        padding: 0
+    }
+
+    .more-info:hover {
+        cursor: context-menu;
+    }
+}
+
+
