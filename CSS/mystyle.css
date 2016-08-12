@@ -335,7 +335,7 @@ label {
     height: 25px;
 }
 
-.cart-subtotal, .shop-cart.qty {
+.cart-subtotal, .shop-cart.qty, .cart-sum {
     font-size: 1.15em;
 }
 
@@ -343,6 +343,13 @@ label {
     margin-right: 10px;
 }
 
+.cart-sum  label {
+    margin-right: 10px;
+}
+
+#sum, #subtotal {
+    margin-left: 70px;
+}
 
 /****************************************/
 /*************** Buttons ***************/

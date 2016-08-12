@@ -24,6 +24,8 @@ function showCart () {
             checkPromo();
             removeItem();
             updateItem();
+            calculateSum();
+
         })
     }
 };
@@ -77,7 +79,7 @@ function displayCart() {
 }
 
 function calculateSum() {
-    var i, items, tempSubtotal = 0;
+    var i, items, tempSum, tempSubtotal = 0;
     items = $(".input-style.dollar-amt");
 
     $("#subtotal").attr("value", 0);
@@ -87,6 +89,8 @@ function calculateSum() {
     }
 
     $("#subtotal").attr("value", tempSubtotal.toFixed(2));
+    tempSum = $("#subtotal").val();
+    $("#sum").attr("value", +tempSum);
 
 }
 
@@ -94,27 +98,24 @@ function calculateSum() {
 function checkPromo() {
     var i, calc, companyPromo, userInputPromo, discount = 0, promoCode = "", tempSum, sumAfterDiscount = 0;
 
-    calculateSum();
-
     calc = $(".fa-calculator")[0];
     companyPromo = ["sale10", "extra15", "first20"];
-    tempSum = $("#subtotal").attr("value");
 
     $(calc).click(function(e) {
         userInputPromo = $("#promo-code").val().toLowerCase();
+        tempSum = $("#subtotal").val();
 
         for (i = 0; i < companyPromo.length; i++) {
             if (userInputPromo == companyPromo[i]) {
                 discount = +companyPromo[i].slice(promoCode.length-2);
-                sumAfterDiscount = (+tempSum) - (+tempSum * (discount/100));
-
-                $("#subtotal").attr("value", sumAfterDiscount.toFixed(2));
-
+                sumAfterDiscount = (+tempSum) - (+tempSum * (discount/100)); console.log(discount);
+                $("#sum").attr("value", sumAfterDiscount.toFixed(2));
                 break;
             } else if (userInputPromo != "") {
                 alert("Promo code invalid");
                 $("#promo-code").val("");
-                break;
+                $("#sum").attr("value", +tempSum);
+               break;
             }
         }
         e.preventDefault();
@@ -134,24 +135,31 @@ function removeItem() {
     }
 }
 
+
 function updateItem() {
-    var i, sel, selected, qty, priceEach, priceTotal, priceVal, updateBtn = $(".update");
+    var i, sel, selected, qty, eachAmt, amt, priceEach, priceTotal, priceVal, updateBtn = $(".update");
 
     for (i = 0; i < updateBtn.length; i++) {
         updateBtn[i].addEventListener('click', function() {
             sel = this.parentNode;
             selected = $(sel).parents(':eq(2)');
-            qty = selected[0].getElementsByClassName("shop-cart qty")[0].value;
-            priceEach = selected[0].getElementsByClassName("input-style dollar-amt")[0].value;
+            qty = selected[0].getElementsByClassName("shop-cart qty")[0].value; console.log("this" + this.qty);
+            priceEach = $(".price.in-cart").text();console.log(priceEach)
+            eachAmt = priceEach.slice(1);console.log(eachAmt)
+            amt = Number(eachAmt);console.log(amt)
             priceVal = selected[0].getElementsByClassName("input-style dollar-amt")[0];
 
             if (qty == 0) {
-                $(sel).parents(':eq(3)').remove();
+                $(this).parents(':eq(3)').remove();
             } else {
-                priceTotal = +qty * +priceEach; console.log(priceTotal)
+                priceTotal = +qty * amt;
                 priceVal.value = priceTotal;
+
             }
-            calculateSum();
         })
     }
+
+
 }
+
+
