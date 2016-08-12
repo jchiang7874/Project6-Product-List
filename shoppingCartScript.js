@@ -80,7 +80,7 @@ function displayCart() {
 
 function calculateSum() {
     var i, items, tempSum, tempSubtotal = 0;
-    items = $(".input-style.dollar-amt");
+    items = $(".input-style.dollar-amt.per-item");
 
     $("#subtotal").attr("value", 0);
 
@@ -89,6 +89,7 @@ function calculateSum() {
     }
 
     $("#subtotal").attr("value", tempSubtotal.toFixed(2));
+
     tempSum = $("#subtotal").val();
     $("#sum").attr("value", +tempSum);
 
@@ -143,10 +144,10 @@ function updateItem() {
         updateBtn[i].addEventListener('click', function() {
             sel = this.parentNode;
             selected = $(sel).parents(':eq(2)');
-            qty = selected[0].getElementsByClassName("shop-cart qty")[0].value; console.log("this" + this.qty);
-            priceEach = $(".price.in-cart").text();console.log(priceEach)
-            eachAmt = priceEach.slice(1);console.log(eachAmt)
-            amt = Number(eachAmt);console.log(amt)
+            qty = selected[0].getElementsByClassName("shop-cart qty")[0].value;
+            priceEach = $(".price.in-cart").text();
+            eachAmt = priceEach.slice(1);
+            amt = Number(eachAmt);
             priceVal = selected[0].getElementsByClassName("input-style dollar-amt")[0];
 
             if (qty == 0) {
@@ -158,8 +159,7 @@ function updateItem() {
             }
         })
     }
-
-
+   //calculateSum();
 }
 
 
